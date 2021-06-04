@@ -1,6 +1,3 @@
-// Unique ID for the className.
-var MOUSE_VISITED_CLASSNAME = 'crx_mouse_visited';
-
 // Previous dom, that we want to track, so we can remove the previous styling.
 var prevDOM = null;
 
@@ -21,7 +18,7 @@ document.addEventListener('mousemove', function (e) {
 
                     var span = document.createElement('span');
                     span.style.color = "#e60073";
-                    span.textContent = price + " | ";
+                    span.textContent = ` $` + price + " | ";
                     e.target.parentElement.appendChild(span)
                 })
         }

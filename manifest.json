@@ -1,10 +1,11 @@
 {
-    "name": "Mark active image",
+    "name": "Charts for twitter",
     "version": "1.11",
-    "description": "Mark image with dashed frame.",
+    "description": "Candle charts for twitter",
     "permissions": [
         "activeTab",
-        "declarativeContent"
+        "declarativeContent",
+        "scripting"
     ],
      "content_scripts": [
         {
@@ -16,9 +17,10 @@
                 "imageMarker.css"
             ],
             "js": [
-                "imageMarker.js"
+                "imageMarker.js",
+                "tv.js"
             ]
         }
     ],
-   "manifest_version": 2
+   "manifest_version": 3
 }

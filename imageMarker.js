@@ -5,7 +5,7 @@ var prevDOM = null;
 
 // Mouse listener for any move event on the current document.
 document.addEventListener('mousemove', function (e) {
-//  console.log('e', e);
+    //  console.log('e', e);
     const t = e.target
     if (prevDOM != t && t.nodeName == 'A') {
         const text = t.text;
@@ -21,6 +21,9 @@ document.addEventListener('mousemove', function (e) {
                     if (exchangeName.toLowerCase().includes("nasdaq")) {
                         exchangeName = "NASDAQ"
                     }
+                    if (exchangeName.toLowerCase().includes("nyse")) {
+                        exchangeName = "NYSE"
+                    }
 
                     var span = document.createElement('span');
                     span.style.color = "#e60073";
@@ -34,22 +37,21 @@ document.addEventListener('mousemove', function (e) {
 
                     //remove prev div with chart 
                     const s = document.getElementById("chart")
-                    if (s) s.remove();
-                    
-                    const div = document.createElement("div");
-                    div.id = "chart"
-                    div.style.position = "fixed"
-                    div.style.top = (mouseY + 20) + "px"
-                    div.style.left = mouseX + "px"
-                    div.style.width = "600px";
-                    div.style.height = "430px";
-                    div.style.padding = "10px";
-                    div.style.backgroundColor = "white";
-                    div.style.border = "1px solid gray";
-                    div.innerHTML = `<div id="chartHeader" style="cursor:move;background-color: #2196F3;"><button id="closeChart">Close</button></div>
-                                        <div id="chartDiv"></div>`;
+                    if (!s) {
+                        const div = document.createElement("div");
+                        div.id = "chart"
+                        div.style.position = "fixed"
+                        div.style.top = (mouseY + 20) + "px"
+                        div.style.left = mouseX + "px"
+                        div.style.width = "600px";
+                        div.style.height = "430px";
+                        div.style.padding = "10px";
+                        div.style.backgroundColor = "white";
+                        div.style.border = "1px solid gray";
+                        div.innerHTML = `<div id="chartHeader" style="cursor:move;background-color:#2196F3;"><button id="closeChart">Close</button></div><div id="chartDiv"></div>`;
+                        document.body.appendChild(div)
+                    }
 
-                    document.body.appendChild(div)
                     new TradingView.widget(
                         {
                             "width": 600,

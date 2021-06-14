@@ -16,6 +16,7 @@ document.addEventListener('mousemove', function (e) {
                 .then(i => {
                     console.log('i', i);
                     const price = i.quoteSummary.result[0].price.regularMarketPrice.raw
+                    const exchangeName = i.quoteSummary.result[0].price.exchangeName
 
                     var span = document.createElement('span');
                     span.style.color = "#e60073";
@@ -45,7 +46,7 @@ document.addEventListener('mousemove', function (e) {
                         {
                             "width": 600,
                             "height": 400,
-                            "symbol": "NASDAQ:" + ticker,
+                            "symbol": exchangeName + ":" + ticker,
                             "interval": "D",
                             "timezone": "Etc/UTC",
                             "theme": "light",

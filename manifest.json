@@ -11,10 +11,7 @@
         {
             "matches": [
                 "http://*/*",
-                "https://*/*",
-                 "https://query1.finance.yahoo.com/*",
-                 "https://*.yahoo.com/*"
-                 
+                "https://*/*"
             ],
             "css": [
                 "imageMarker.css"
